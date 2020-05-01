@@ -11,6 +11,9 @@ service cloud.firestore {
     match /articles/{articleId}{
       allow read;
     }
+    match /blogs/{blogId}{
+      allow read;
+    }
     match /articles/{articleId}/comments/{commentsId}{
       allow read;
     }

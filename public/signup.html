@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" text="lang/css" href="style.css">
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="navbar.js"></script>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 5 -->
+    <script src="https://kit.fontawesome.com/6d88c2ba6f.js" crossorigin="anonymous"></script>
+    <title>Sign up | The Student Financial</title>
+  </head>
+  <body>
+    <!-- Burger dropdown -->
+    <div class="burger-dropdown">
+      <a class="navbrand navlink burgerfotocontainer" href="#"><img class="brandfoto burgerfoto" src="logo.png" alt="Logo"></a>
+      <button class="burger-close" type="button" name="button"><i class="material-icons">close</i></button>
+      <ul class="burgerlist">
+        <li><a class="navlink" href="blog.html">Blog</a></li>
+        <li><a class="navlink" href="aboutus.html">About&nbsp;us</a></li>
+        <li><a class="navlink" href="contact.html">Contact</a></li>
+        <li><hr class="navhr" /></li>
+        <li><a class="navlink" href="login.html">Log&nbsp;in</a></li>
+        <li><a class="navlink" href="signup.html">Sign&nbsp;up</a></li>
+      </ul>
+    </div>
+
+    <div class="container">
+
+      <!-- Navigation bar -->
+      <nav class="navbar">
+        <a class="navbrand navlink" href="index.html"><img class="brandfoto" src="logo.png" alt="Logo"></a>
+        <ul class="navlist navinitial">
+          <li><a class="navlink" href="blog.html">Blog</a></li>
+          <li><a class="navlink" href="aboutus.html">About&nbsp;us</a></li>
+          <li><a class="navlink" href="contact.html">Contact</a></li>
+          <li><a class="navlink" href="login.html">Log&nbsp;in</a></li>
+          <li><a class="navlink" href="signup.html">Sign&nbsp;up</a></li>
+        </ul>
+        <button class="burgermenu" type="button" name="button"><i class="material-icons">menu</i></button>
+      </nav>
+      <nav class="burger-dropdown">
+        <a class="navbrand navlink" href="index.html"><img class="brandfoto" src="logo.png" alt="Logo"></a>
+        <ul class="navlist navinitial">
+          <li><a class="navlink" href="blog.html">Blog</a></li>
+          <li><a class="navlink" href="aboutus.html">About&nbsp;us</a></li>
+          <li><a class="navlink" href="contact.html">Contact</a></li>
+          <li><a class="navlink" href="login.html">Log&nbsp;in</a></li>
+          <li><a class="navlink" href="signup.html">Sign&nbsp;up</a></li>
+        </ul>
+      </nav>
+
+      <!-- Page content -->
+      <div class="signup-container">
+
+        <div class="signup-text-container">
+          <div class="signup-text">
+            <h2 class="signup-text-header">Join ambitious finance students from all over the world!</h2>
+            <p class="signup-text-description">
+              Don't wait! Sign up now to get acces to everything the Student Financial has to offer.
+              Connect with fellow students, learn about finance and work towards your own publication!
+              <br /><br />Already have an account? <a class="signup-login" href="login.html">Log&nbsp;in!</a>
+            </p>
+          </div>
+        </div>
+        <div class="signup-form-container">
+          <div class="signup-form-text-container">
+            <h1 class="signup-form-header">Sign&nbsp;up</h1>
+            <form class="" action="index.html" method="post">
+              <label for="fname">First&nbsp;name</label><br />
+              <input type="text" name="fname" placeholder="Warren"><br />
+              <label for="lname">Last&nbsp;name</label><br />
+              <input type="text" name="lname" placeholder="Buffet"><br />
+              <label for="e-mailadres">E-mailadres</label><br />
+              <input type="e-mail" name="e-mailadres" placeholder="Warren.buffet@berkshirehathaway.com"><br />
+              <label for="password">Password</label><br />
+              <input type="password" name="password" placeholder="*********"><br />
+              <label for="confirmpassword">Confirm&nbsp;password</label><br />
+              <input type="password" name="confirmpassword" placeholder="*********"><br />
+              <input type="submit" name="submit" value="Sign up">
+            </form>
+          </div>
+        </div>
+
+      <!-- End of Page Content -->
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <h4 class="footer-header">The Student Financial</h4>
+        <div class="footer-socials">
+          <a class="instaref" href="#">
+            <h6 class="social-header">Follow us on Instagram!</h6>
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+        <div class="footer-useful">
+          <div class="footer-links">
+            <ul class="fuseful">
+              <li class="footerlink"><a class="footerref" href="#">Sitemap</a></li>
+              <li class="footerlink"><a class="footerref" href="blog.html">Blog</a></li>
+            </ul>
+            <ul class="fuseful">
+              <li class="footerlink"><a class="footerref" href="aboutus.html">About&nbsp;Us</a></li>
+              <li class="footerlink"><a class="footerref" href="contact.html">Contact</a></li>
+            </ul>
+            <ul class="fuseful">
+              <li class="footerlink"><a class="footerref" href="login.html">Log&nbsp;in</a></li>
+              <li class="footerlink"><a class="footerref" href="signup.html">Sign&nbsp;up</a></li>
+            </ul>
+          </div>
+          <small class="footer-copyright">Copyright &copy; <span id="copyright-year"></span> The Student Financial. All Rights Reserved.</small>
+        </div>
+
+      </footer>
+
+    </div>
+  </body>
+</html>
