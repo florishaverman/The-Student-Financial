@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
+
+    <title>The Student Financial</title>
+  </head>
+  <body class="grey lighten-3">
+      <!-- NAVBAR -->
+    <nav class="z-depth-0 grey lighten-4">
+      <div class="nav-wrapper container">
+        <a href="#" class="right brand-logo">
+          <img src="img/logo.svg" style="width: 180px; margin-top: 10px;">
+        </a>
+        <!-- removed hide-on-med-and-down for class ul -->
+        <ul id="nav-mobile" class="center">
+            <li class="logged-in" style="display: none;">
+              <a href="#" class="grey-text modal-trigger" data-target="modal-account" onclick = "accountModal()">Account</a>
+            </li>
+            <li class="logged-in" style="display: none;">
+              <a href="#" class="grey-text" id="logout">Logout</a>
+            </li>
+            <li class="admin" style="display: none;">
+              <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Guide</a>
+            </li>
+            <li class="admin" style="display: none;">
+              <a href="#" class="grey-text modal-trigger" data-target="modal-addAdmin">Add admin</a>
+            </li>
+            <li class="logged-out" style="display: none;">
+              <a href="#" class="grey-text modal-trigger" data-target="modal-auth">Login</a>
+            </li>
+            <li class="logged-out" style="display: none;">
+              <a href="#" class="grey-text modal-trigger" data-target="modal-auth" onclick="toggleAuth()">Sign up</a>
+            </li>
+         </ul>
+      </div>
+    </nav>
+
+    <!-- SIGN UP MODAL -->
+    <div id="modal-auth" class="modal">
+      <div class="modal-content" style="display:none;">
+        <h4>Sign up</h4><br />
+        <form id="signup-form">
+          <div class="input-field">
+            <input type="email" id="signup-email" required />
+            <label for="signup-email">Email address</label>
+          </div>
+          <div class="input-field">
+            <input type="text" id="signup-username" required />
+            <label for="signup-username">Username</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="signup-password" required />
+            <label for="signup-password">Choose password</label>
+          </div>
+          <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+          <p class="error pink-text center-align"></p>
+        </form>
+        <div>Got an account? <a class="switch">Login instead</a></div>
+      </div>
+      <div class="modal-content" style="display:block;">
+        <h4>Login</h4><br />
+        <form id="login-form">
+          <div class="input-field">
+            <input type="email" id="login-email" required />
+            <label for="login-email">Email address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="login-password" required />
+            <label for="login-password">Your password</label>
+          </div>
+          <button class="btn yellow darken-2 z-depth-0">Login</button>
+          <p class="error pink-text center-align"></p>
+        </form>
+        <div>No account? <a class="switch">Register instead</a></div>
+        <div>Forgot password? <a class="resetPassword modal-trigger" data-target="modal-resetPassword">Reset password</a></div>
+      </div>
+    </div>
+
+    <!-- RESET PASSWORD MODAL -->
+    <div id="modal-resetPassword" class="modal">
+      <div class="modal-content">
+        <h4>Reset password</h4><br />
+        <form id="resetPassword-form">
+          <div class="input-field">
+            <input type="email" id="email" required>
+            <label for="email">Email</label>
+          </div>
+          <button class="btn yellow darken-2 z-depth-0">Send email</button>
+          <p class="error pink-text center-align"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- ACCOUNT MODAL -->
+    <div id="modal-account" class="modal">
+      <div class="modal-content center-align">
+        <h4>Account details</h4><br />
+        <div class="account-details"></div>
+      </div>
+    </div>
+
+    <!-- CREATE ARTICLE MODAL -->
+    <div id="modal-create" class="modal">
+      <div class="modal-content">
+        <h4>Create Article</h4><br />
+        <form id="create-form">
+          <div class="input-field">
+            <input type="text" id="title" required>
+            <label for="title">Guide Title</label>
+          </div>
+          <div class="input-field">
+            <textarea id="content" class="materialize-textarea" required></textarea>
+            <label for="content">Guide Content</label>
+          </div>
+          <button class="btn yellow darken-2 z-depth-0">Create</button>
+          <p class="error pink-text center-align"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- EDIT ARTICLE MODAL -->
+    <div id="modal-editArticle" class="modal">
+      <div class="modal-content">
+        <h4>Edit Article</h4><br />
+        <form id="editArticle-form">
+          <div class="input-field">
+            <input type="text" id="title" required value='hier moet the title komen'>
+            <label for="title">Guide Title</label>
+          </div>
+          <div class="input-field">
+            <textarea id="content" class="materialize-textarea active" required></textarea>
+            <label for="content">Guide Content</label>
+          </div>
+          <button class="btn yellow darken-2 z-depth-0">Edit</button>
+          <p class="error pink-text center-align"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- ADD ADMIN MODAL -->
+    <div id="modal-addAdmin" class="modal">
+      <div class="modal-content">
+        <h4>Add an admin</h4><br />
+        <form id="addAdmin-form">
+          <div class="input-field">
+            <input type="email" id="email" required>
+            <label for="email">Email to make admin</label>
+          </div>
+          <button class="btn yellow darken-2 z-depth-0">Add Admin</button>
+          <p class="error pink-text center-align"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- GUIDE LIST -->
+    <div class="container" style="margin-top: 40px;">
+      <ul class="collapsible z-depth-0 guides" style="border: none;" id="guide-list">
+
+      </ul>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.14.2/firebase-app.js"></script>
+
+    <!-- include only the Firebase features as you need -->
+    <script src="/__/firebase/7.7.0/firebase-auth.js"></script>
+    <script src="/__/firebase/7.7.0/firebase-firestore.js"></script>
+    <script src="/__/firebase/7.7.0/firebase-functions.js"></script>
+
+     <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
