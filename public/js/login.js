@@ -15,5 +15,6 @@ loginForm.addEventListener('submit', (e) => {
     console.log('je bent nu ingelogd')
   }).catch(err => {
     console.log(err.message);
+    console.log(err.message);
   });
 });
