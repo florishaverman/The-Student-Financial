@@ -69,15 +69,15 @@
         <div class="signup-form-container">
           <div class="signup-form-text-container">
             <h1 class="signup-form-header">Sign&nbsp;up</h1>
-            <form class="" action="index.html" method="post">
+            <form class="signup-form" action="index.html" method="post">
               <label for="fname">First&nbsp;name</label><br />
-              <input type="text" name="fname" placeholder="Warren"><br />
+              <input type="text" name="fname" id="username" placeholder="Warren"><br />
               <label for="lname">Last&nbsp;name</label><br />
-              <input type="text" name="lname" placeholder="Buffet"><br />
+              <input type="text" name="lname" id='lastName' placeholder="Buffet"><br />
               <label for="e-mailadres">E-mailadres</label><br />
-              <input type="e-mail" name="e-mailadres" placeholder="Warren.buffet@berkshirehathaway.com"><br />
+              <input type="e-mail" name="e-mailadres" id="e-mailadres" placeholder="Warren.buffet@berkshirehathaway.com"><br />
               <label for="password">Password</label><br />
-              <input type="password" name="password" placeholder="*********"><br />
+              <input type="password" name="password"  id="password" placeholder="*********"><br />
               <label for="confirmpassword">Confirm&nbsp;password</label><br />
               <input type="password" name="confirmpassword" placeholder="*********"><br />
               <input type="submit" name="submit" value="Sign up">
@@ -118,5 +118,19 @@
       </footer>
 
     </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.14.2/firebase-app.js"></script>
+
+    <!-- include only the Firebase features as you need -->
+    <script src="/__/firebase/7.7.0/firebase-auth.js"></script>
+    <script src="/__/firebase/7.7.0/firebase-firestore.js"></script>
+    <script src="/__/firebase/7.7.0/firebase-functions.js"></script>
+
+     <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="js/signUp.js"></script>
   </body>
 </html>

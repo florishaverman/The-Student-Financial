@@ -64,7 +64,7 @@
         <div class="login-form">
           <div class="login-form-container">
             <h2 class="login-header">Log&nbsp;in</h2>
-            <form class="" action="index.html" method="post">
+            <form class="login-form" action="index.html" method="post">
               <label for="e-mailadres">E-mailadres</label><br />
               <input type="email" class="logininput" id="e-mailadres" name="e-mailadres" placeholder="warren.buffet@berkshirehathaway.com"><br />
               <label for="password">Password</label><br />
@@ -116,5 +116,19 @@
       </footer>
 
     </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.14.2/firebase-app.js"></script>
+
+    <!-- include only the Firebase features as you need -->
+    <script src="/__/firebase/7.7.0/firebase-auth.js"></script>
+    <script src="/__/firebase/7.7.0/firebase-firestore.js"></script>
+    <script src="/__/firebase/7.7.0/firebase-functions.js"></script>
+
+     <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="js/login.js"></script>
   </body>
 </html>

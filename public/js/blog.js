@@ -1,6 +1,7 @@
 const db = firebase.firestore();
+const functions= firebase.functions();
 
-db.collection('blogs').onSnapshot(snapshot => {
+db.collection('articles').onSnapshot(snapshot => {
   //document.querySelector('.blog-list').innerHTML=''
   snapshot.docs.forEach(doc => renderBlog(doc));
   });
@@ -18,12 +19,12 @@ async function renderBlog(doc){
   //the title of the article
   let header = document.createElement('h3');
   header.classList.add('blog-post-header');
-  header.textContent = doc.data().header;
+  header.textContent = doc.data().title;
 
   //the disctiption of the article
   let description = document.createElement('pre');
   description.classList.add('blog-post-description');
-  description.textContent = doc.data().description;
+  description.textContent = doc.data().content;
 
   //read the full article
   let readFull = document.createElement('pre');
@@ -39,6 +40,8 @@ async function renderBlog(doc){
   //create the ul under the blog
   let ul = document.createElement('ul');
   ul.classList.add('blog-post-details');
+  ul.setAttribute('data-id', doc.id);
+
   //the author
   let author = document.createElement('li');
   author.classList.add('blog-post-element','blog-post-author');
@@ -54,7 +57,7 @@ async function renderBlog(doc){
 
   let thumbsUp = document.createElement('li');
   thumbsUp.classList.add('blog-post-element','blog-post-thumbsup');
-  thumbsUp.innerHTML = `<i class="fas fa-thumbs-up"></i>`;
+  thumbsUp.innerHTML = `<i class="fas fa-thumbs-up"></i>${doc.data().upvotes}`;
 
   let thumbsDown = document.createElement('li');
   thumbsDown.classList.add('blog-post-element','blog-post-thumbsdown');
@@ -67,6 +70,31 @@ async function renderBlog(doc){
   ul.appendChild(thumbsDown);
   li.appendChild(ul);
   document.querySelector('#blog-list').appendChild(li)
+
+  // upvoting the article
+  thumbsUp.addEventListener('click', (e)=>{
+    e.stopPropagation()
+    let id =e.target.parentElement.getAttribute('data-id');
+    const voteUp = functions.httpsCallable('upvote');
+    voteUp({
+      id:id
+    })
+    .catch(error => {
+      console.log(error.message);
+    });
+  });
+
+  // downvoting the article
+  thumbsDown.addEventListener('click', (e)=>{
+    e.stopPropagation()
+    const voteDown = functions.httpsCallable('downvote');
+    voteDown({
+      id: e.target.parentElement.getAttribute('data-id')
+    })
+    .catch(error => {
+      console.log(error.message);
+    });
+  });
 
 
   /*

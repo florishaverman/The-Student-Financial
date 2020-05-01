@@ -26,14 +26,14 @@ exports.addUsername = functions.https.onCall((data, context) => {
       'only authenticated users can add a username'
     );
   }
-  if (data.username.length > 30) {
+  if (data.variableValue.length > 30) {
     throw new functions.https.HttpsError(
       'invalid-argument',
       'Username must be no more than 30 characters long'
     );
   }
   return admin.firestore().collection('users').doc(data.id).set({
-    username: data.username
+    [data.variableName]: data.variableValue
   },{merge:true});
 });
 
